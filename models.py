@@ -1,7 +1,5 @@
-from __future__ import annotations
-
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 from sqlalchemy import Column, Float, ForeignKeyConstraint, Integer
 from sqlmodel import Field, Relationship, SQLModel, Session, create_engine
@@ -47,7 +45,7 @@ class People(SQLModel, table=True):
 	finalGame: Optional[str] = None
 	retroID: Optional[str] = None
 
-	batting_rows: list["Batting"] = Relationship(back_populates="player")
+	batting_rows: List["Batting"] = Relationship(back_populates="player")
 
 
 class Teams(SQLModel, table=True):
@@ -102,7 +100,7 @@ class Teams(SQLModel, table=True):
 	teamIDlahman45: Optional[str] = None
 	teamIDretro: Optional[str] = None
 
-	batting_rows: list["Batting"] = Relationship(
+	batting_rows: List["Batting"] = Relationship(
 		back_populates="team",
 		sa_relationship_kwargs={
 			"primaryjoin": "and_(Teams.teamID==foreign(Batting.teamID), Teams.yearID==foreign(Batting.yearID))"

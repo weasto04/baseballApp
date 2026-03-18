@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Baseball Stats Hub</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:wght@400;700&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div class="page-bg" aria-hidden="true"></div>
+	<main class="page-shell">
+		<header class="hero-card">
+			<p class="kicker">League Archive</p>
+			<h1>Baseball Stats Hub</h1>
+			<p class="hero-copy">
+				Explore seasons across baseball history. Select a year to begin.
+			</p>
+		</header>
+
+		<section class="selector-card" aria-labelledby="year-selector-title">
+			<h2 id="year-selector-title">Choose a Season</h2>
+			<div class="selector-row">
+				<label for="year-select">Season Year</label>
+				<select id="year-select" disabled>
+					<option>Loading years...</option>
+				</select>
+			</div>
+			<p id="status-text" class="status-text" role="status" aria-live="polite"></p>
+		</section>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>
