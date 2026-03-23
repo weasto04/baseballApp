@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Baseball Stats Hub</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:wght@400;700&display=swap"
-		rel="stylesheet"
-	/>
-	<link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Stats</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="page-bg" aria-hidden="true"></div>
-	<main class="page-shell">
-		<header class="hero-card">
-			<p class="kicker">League Archive</p>
-			<h1>Baseball Stats Hub</h1>
-			<p class="hero-copy">
-				Explore seasons across baseball history. Select a year to begin.
-			</p>
-		</header>
+    <header>
+        <div class="header-bar"></div>
+        <div class="header-content">
+            <h1>&#9918; Baseball Stats</h1>
+            <p class="tagline">Historical baseball statistics and records</p>
+        </div>
+        <div class="header-bar"></div>
+    </header>
 
-		<section class="selector-card" aria-labelledby="year-selector-title">
-			<h2 id="year-selector-title">Choose a Season</h2>
-			<div class="selector-row">
-				<label for="year-select">Season Year</label>
-				<select id="year-select" disabled>
-					<option>Loading years...</option>
-				</select>
-			</div>
-			<p id="status-text" class="status-text" role="status" aria-live="polite"></p>
-		</section>
-	</main>
+    <main>
+        <section class="select-section">
+            <label for="year-select">Select a Season</label>
+            <div class="select-wrapper">
+                <select id="year-select" disabled>
+                    <option value="">Loading seasons...</option>
+                </select>
+            </div>
+        </section>
 
-	<script src="script.js"></script>
+        <div id="teams-section" class="teams-section" hidden>
+            <h2 id="teams-heading">Teams</h2>
+            <div id="teams-container"></div>
+        </div>
+
+        <div id="roster-section" class="roster-section" hidden>
+            <h2 id="roster-heading">Roster</h2>
+            <div id="roster-container"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Baseball Stats &copy; 2026</p>
+    </footer>
+
+    <script src="/script.js"></script>
 </body>
 </html>

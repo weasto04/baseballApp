@@ -1,172 +1,269 @@
-:root {
-	--ink: #11263a;
-	--field-grass: #1f6f4a;
-	--diamond-dirt: #c4864b;
-	--chalk: #f7f4ef;
-	--night-sky: #0a1b2e;
-	--card-shadow: 0 18px 45px rgba(8, 22, 38, 0.35);
-}
-
-* {
-	box-sizing: border-box;
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	min-height: 100vh;
-	font-family: "Merriweather", serif;
-	color: var(--chalk);
-	background: radial-gradient(circle at 20% 10%, #1f4e78 0%, var(--night-sky) 45%, #060f1a 100%);
-	overflow-x: hidden;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #1a1a2e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.page-bg {
-	position: fixed;
-	inset: 0;
-	pointer-events: none;
-	background:
-		linear-gradient(165deg, rgba(230, 241, 255, 0.08), transparent 40%),
-		repeating-linear-gradient(
-			90deg,
-			rgba(255, 255, 255, 0.05) 0,
-			rgba(255, 255, 255, 0.05) 2px,
-			transparent 2px,
-			transparent 14px
-		);
-	mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
+/* ── Header ── */
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 0;
 }
 
-.page-shell {
-	width: min(960px, 92vw);
-	margin: 0 auto;
-	padding: 4.5rem 0 3rem;
-	display: grid;
-	gap: 1.5rem;
+.header-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #c0392b, #e74c3c, #c0392b);
 }
 
-.hero-card,
-.selector-card {
-	border-radius: 22px;
-	box-shadow: var(--card-shadow);
-	border: 1px solid rgba(255, 255, 255, 0.16);
-	backdrop-filter: blur(6px);
+.header-content {
+    padding: 2rem 1rem;
 }
 
-.hero-card {
-	padding: 2rem 2rem 1.8rem;
-	background:
-		linear-gradient(120deg, rgba(22, 90, 58, 0.93), rgba(16, 58, 96, 0.94)),
-		radial-gradient(circle at right top, rgba(247, 244, 239, 0.35), transparent 35%);
-	animation: rise-in 680ms ease-out;
+header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
-.kicker {
-	margin: 0;
-	font-size: 0.9rem;
-	letter-spacing: 0.24em;
-	text-transform: uppercase;
-	color: rgba(247, 244, 239, 0.78);
+.tagline {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    color: #8899aa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
 }
 
-h1,
-h2 {
-	font-family: "Bebas Neue", sans-serif;
-	letter-spacing: 0.06em;
-	margin: 0;
+/* ── Main ── */
+main {
+    flex: 1;
+    max-width: 960px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-h1 {
-	font-size: clamp(2.4rem, 6vw, 4.5rem);
-	line-height: 0.98;
-	margin-top: 0.45rem;
+/* ── Season Select ── */
+.select-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #c0392b;
 }
 
-.hero-copy {
-	margin: 1rem 0 0;
-	max-width: 48ch;
-	color: rgba(247, 244, 239, 0.9);
+.select-section label {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+    color: #1a1a2e;
 }
 
-.selector-card {
-	padding: 1.6rem 2rem 2rem;
-	background: linear-gradient(160deg, rgba(9, 30, 52, 0.92), rgba(11, 45, 74, 0.88));
-	animation: rise-in 700ms ease-out 90ms both;
+.select-wrapper {
+    position: relative;
 }
 
-h2 {
-	font-size: clamp(1.6rem, 4vw, 2.3rem);
-	color: #ffd8ac;
+.select-wrapper::after {
+    content: '\25BC';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #c0392b;
+    font-size: 0.8rem;
 }
 
-.selector-row {
-	margin-top: 1rem;
-	display: grid;
-	gap: 0.6rem;
+#year-select {
+    width: 100%;
+    padding: 0.85rem 2.5rem 0.85rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.05rem;
+    border: 2px solid #dde1e7;
+    border-radius: 6px;
+    background: #fafbfc;
+    color: #1a1a2e;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-label {
-	color: rgba(247, 244, 239, 0.88);
-	font-size: 0.96rem;
+#year-select:hover {
+    border-color: #c0392b;
 }
 
-select {
-	appearance: none;
-	width: min(420px, 100%);
-	border-radius: 14px;
-	border: 2px solid rgba(255, 216, 172, 0.5);
-	background:
-		linear-gradient(140deg, rgba(247, 244, 239, 0.98), rgba(245, 224, 195, 0.98));
-	color: var(--ink);
-	padding: 0.85rem 1rem;
-	font-size: 1.05rem;
-	font-family: "Merriweather", serif;
-	font-weight: 700;
-	transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+#year-select:focus {
+    outline: none;
+    border-color: #c0392b;
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
 }
 
-select:enabled:hover,
-select:enabled:focus {
-	border-color: var(--diamond-dirt);
-	box-shadow: 0 0 0 4px rgba(196, 134, 75, 0.22);
-	transform: translateY(-1px);
-	outline: none;
+#year-select:disabled {
+    cursor: wait;
+    opacity: 0.6;
 }
 
-select:disabled {
-	opacity: 0.75;
-	cursor: not-allowed;
+/* ── Teams Section ── */
+.teams-section {
+    margin-top: 1.5rem;
 }
 
-.status-text {
-	margin: 0.9rem 0 0;
-	min-height: 1.2rem;
-	color: rgba(247, 244, 239, 0.86);
+.teams-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.2rem;
+    color: #1a1a2e;
+    text-align: center;
 }
 
-.status-text.error {
-	color: #ffb8ad;
+.loading {
+    text-align: center;
+    color: #8899aa;
+    padding: 2rem;
+    font-size: 1rem;
 }
 
-@keyframes rise-in {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+/* ── League Group ── */
+.league-group {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #c0392b;
+}
+
+.league-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e74c3c;
+}
+
+/* ── Divisions Row ── */
+.divisions-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.division-block {
+    flex: 1;
+    min-width: 180px;
+}
+
+.division-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #c0392b;
+    margin-bottom: 0.5rem;
+}
+
+.division-block ul {
+    list-style: none;
+}
+
+.division-block li {
+    padding: 0.5rem 0.75rem;
+    background: #fafbfc;
+    border: 1px solid #dde1e7;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+}
+
+.team-item {
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.team-item:hover {
+    background: #fff0ee;
+    border-color: #e74c3c;
+}
+
+.team-item.active {
+    background: #c0392b;
+    border-color: #a93226;
+    color: #ffffff;
+}
+
+.roster-section {
+    margin-top: 1.5rem;
+}
+
+.roster-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.2rem;
+    color: #1a1a2e;
+    text-align: center;
+}
+
+#roster-container {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #c0392b;
+}
+
+.roster-list {
+    list-style: none;
+    columns: 2;
+    column-gap: 1.25rem;
+}
+
+.roster-list li {
+    break-inside: avoid;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eef1f5;
 }
 
 @media (max-width: 640px) {
-	.page-shell {
-		padding-top: 2.2rem;
-	}
+    .roster-list {
+        columns: 1;
+    }
+}
 
-	.hero-card,
-	.selector-card {
-		padding-left: 1.15rem;
-		padding-right: 1.15rem;
-		border-radius: 16px;
-	}
+/* ── Footer ── */
+footer {
+    background: #1a1a2e;
+    color: #8899aa;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
